@@ -25,7 +25,7 @@ class SelectPersonVC: UIViewController {
 
     @IBAction func randomClicked(_ sender: Any) {
         let random = Int.random(in: 1...87)
-        personApi.getRandomPersonUrlSession(id: random) { (person) in
+        personApi.getRandomPersonUrlSessionAlamo(id: random) { (person) in
             if let person = person {
                 /// クロージャの中に居る場合自分の所属しているクラスにアクセスする場合、selfを付ける必要がある
                 self.nameLbl.text = person.name

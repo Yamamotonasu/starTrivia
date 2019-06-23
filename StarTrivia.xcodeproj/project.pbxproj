@@ -19,6 +19,7 @@
 		031B2A3C22BE659800C0B5B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2A3B22BE659800C0B5B8 /* Constants.swift */; };
 		031B2A3F22BEF41000C0B5B8 /* PersonApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2A3E22BEF41000C0B5B8 /* PersonApi.swift */; };
 		031B2A4122BF017100C0B5B8 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031B2A4022BF017100C0B5B8 /* Person.swift */; };
+		DC2D147AE79E74996A81CE13 /* Pods_StarTrivia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6F842E007AC4149246C4C7A /* Pods_StarTrivia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,9 @@
 		031B2A3B22BE659800C0B5B8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		031B2A3E22BEF41000C0B5B8 /* PersonApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonApi.swift; sourceTree = "<group>"; };
 		031B2A4022BF017100C0B5B8 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		AF69CBA63B1F29D276810613 /* Pods-StarTrivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarTrivia.release.xcconfig"; path = "Target Support Files/Pods-StarTrivia/Pods-StarTrivia.release.xcconfig"; sourceTree = "<group>"; };
+		B6F842E007AC4149246C4C7A /* Pods_StarTrivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarTrivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D72509046E1D896056F5A656 /* Pods-StarTrivia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarTrivia.debug.xcconfig"; path = "Target Support Files/Pods-StarTrivia/Pods-StarTrivia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2D147AE79E74996A81CE13 /* Pods_StarTrivia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 			children = (
 				031B2A1A22BE24D400C0B5B8 /* StarTrivia */,
 				031B2A1922BE24D400C0B5B8 /* Products */,
+				41A786B7635168974D40C81E /* Pods */,
+				0C921CF7A0C9F8D10F32E3F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,6 +148,24 @@
 			path = Servises;
 			sourceTree = "<group>";
 		};
+		0C921CF7A0C9F8D10F32E3F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6F842E007AC4149246C4C7A /* Pods_StarTrivia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41A786B7635168974D40C81E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D72509046E1D896056F5A656 /* Pods-StarTrivia.debug.xcconfig */,
+				AF69CBA63B1F29D276810613 /* Pods-StarTrivia.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,9 +173,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 031B2A2A22BE24D700C0B5B8 /* Build configuration list for PBXNativeTarget "StarTrivia" */;
 			buildPhases = (
+				6C71D0C1484D07565CB09B22 /* [CP] Check Pods Manifest.lock */,
 				031B2A1422BE24D400C0B5B8 /* Sources */,
 				031B2A1522BE24D400C0B5B8 /* Frameworks */,
 				031B2A1622BE24D400C0B5B8 /* Resources */,
+				5F5555A89468DFA92B38A206 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,6 +236,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F5555A89468DFA92B38A206 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarTrivia/Pods-StarTrivia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarTrivia/Pods-StarTrivia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarTrivia/Pods-StarTrivia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C71D0C1484D07565CB09B22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StarTrivia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		031B2A1422BE24D400C0B5B8 /* Sources */ = {
@@ -364,6 +433,7 @@
 		};
 		031B2A2B22BE24D700C0B5B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D72509046E1D896056F5A656 /* Pods-StarTrivia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -381,6 +451,7 @@
 		};
 		031B2A2C22BE24D700C0B5B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF69CBA63B1F29D276810613 /* Pods-StarTrivia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

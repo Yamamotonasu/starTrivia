@@ -7,9 +7,100 @@
 //
 
 import Foundation
+import Alamofire
+import SwiftyJSON
 
 class PersonApi {
+    // Web request with Alamofire and Codable
+    func getRandomPersonUrlSessionAlamo(id: Int, completion: @escaping PersonResponseCompletion) {
+        
+        /// urlが存在しなければ何もしない(error handling)
+        /// guard文だと以降でも変数を使用する事ができる
+        guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
+        
+        Alamofire.request(url).responseJSON { (response) in
+            
+            /// エラー時の処理
+            if let error = response.result.error {
+                debugPrint(error.localizedDescription)
+                completion(nil)
+                return
+            }
+            
+            guard let data = response.data else {
+                return completion(nil)
+            }
+            let jsonDecoder = JSONDecoder()
+            do {
+                let person = try jsonDecoder.decode(Person.self, from: data)
+                completion(person)
+            } catch {
+                debugPrint(error.localizedDescription)
+                completion(nil)
+            }
+        }
+        
+    }
     
+//    ///web request with Alamofire and SwiftyJSON
+//    func getRandomPersonUrlSessionAlamo(id: Int, completion: @escaping PersonResponseCompletion) {
+//
+//        /// urlが存在しなければ何もしない(error handling)
+//        /// guard文だと以降でも変数を使用する事ができる
+//        guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
+//
+//        Alamofire.request(url).responseJSON { (response) in
+//
+//            /// エラー時の処理
+//            if let error = response.result.error {
+//                debugPrint(error.localizedDescription)
+//                completion(nil)
+//                return
+//            }
+//
+//            guard let data = response.data else {
+//                return completion(nil)
+//            }
+//            do {
+//                let json = try JSON(data: data)
+//                let person = self.parsePersonSwifty(json: json)
+//                completion(person)
+//            } catch {
+//                debugPrint(error.localizedDescription)
+//                completion(nil)
+//            }
+//        }
+//
+//    }
+    
+    // web request with Alamofire
+//    func getRandomPersonUrlSessionAlamo(id: Int, completion: @escaping PersonResponseCompletion) {
+//
+//        /// urlが存在しなければ何もしない(error handling)
+//        /// guard文だと以降でも変数を使用する事ができる
+//        guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
+//
+//        Alamofire.request(url).responseJSON { (response) in
+//
+//            /// エラー時の処理
+//            if let error = response.result.error {
+//                debugPrint(error.localizedDescription)
+//                completion(nil)
+//                return
+//            }
+//
+//            guard let json = response.result.value as? [String: Any] else {
+//                return completion(nil)
+//            }
+//            let person = self.parsePersonManual(json: json)
+//            completion(person)
+//        }
+//
+//    }
+    
+    
+    
+    // web request with URL session
     func getRandomPersonUrlSession(id: Int, completion: @escaping PersonResponseCompletion) {
         
         /// urlが存在しなければ何もしない(error handling)
@@ -49,6 +140,27 @@ class PersonApi {
         task.resume()
     }
     
+    /// parsing with SwiftyJSON
+    private func parsePersonSwifty(json: JSON) -> Person{
+        
+        /// String型にキャストする、失敗したら空文字を挿入する
+        let name = json["name"].stringValue
+        let height = json["height"].stringValue
+        let mass = json["mass"].stringValue
+        let hair = json["hair_color"].stringValue
+        let birthYear = json["birth_year"].stringValue
+        let gender = json["gender"].stringValue
+        let homeworldUrl = json["homeworld"].stringValue
+        // 各
+        let filmUrls = json["films"].arrayValue.map({ $0.stringValue })
+        let vehicleUrls = json["vehicles"].arrayValue.map({ $0.stringValue })
+        let starshipUrls = json["starships"].arrayValue.map({ $0.stringValue })
+        
+        return Person(name: name, height: height, mass: mass, hair: hair, birthYear: birthYear, gender:gender, homeworldUrl: homeworldUrl, filmUrls: filmUrls, vehicleUrls: vehicleUrls, starshipUrls: starshipUrls)
+    }
+    
+    
+    /// Persing function using manual methods
     /// 構造体からインスタンスを作成する。jsonのフォーマットを返す関数
     private func parsePersonManual(json: [String: Any]) -> Person{
         
