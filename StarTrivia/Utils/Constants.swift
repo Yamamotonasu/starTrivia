@@ -6,6 +6,7 @@
 //  Copyright © 2019 山本裕太. All rights reserved.
 //
 
+/// 定数を定義する
 import UIKit
 
 let BLACK_BG = UIColor.black.withAlphaComponent(0.6).cgColor
@@ -16,3 +17,8 @@ let PERSON_URL = URL_BASE + "people/"
 
 /// Person structureを使い、何も返さないtypealias
 typealias PersonResponseCompletion = (Person?) -> Void
+
+typealias HomeworldResponseCompletion = (Homeworld?) -> Void
+
+/// Vehiclesに準拠していて、戻り値がなし
+typealias VehicleResponseCompletion = (Vehicles?) -> Void

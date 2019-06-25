@@ -16,7 +16,7 @@ class PersonApi {
         
         /// urlが存在しなければ何もしない(error handling)
         /// guard文だと以降でも変数を使用する事ができる
-        guard let url = URL(string: "\(PERSON_URL)\(id)") else { return }
+        guard let url = URL(string: "\(PERSON_URL)\(1)") else { return }
         
         Alamofire.request(url).responseJSON { (response) in
             
