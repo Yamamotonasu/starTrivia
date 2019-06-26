@@ -22,3 +22,6 @@ typealias HomeworldResponseCompletion = (Homeworld?) -> Void
 
 /// Vehiclesに準拠していて、戻り値がなし
 typealias VehicleResponseCompletion = (Vehicles?) -> Void
+
+/// responseにnilが帰ってくる可能性があるので構造体に?を付ける
+typealias StarshipResponseCompletion = (Starship?) -> Void
