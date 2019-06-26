@@ -25,3 +25,5 @@ typealias VehicleResponseCompletion = (Vehicles?) -> Void
 
 /// responseにnilが帰ってくる可能性があるので構造体に?を付ける
 typealias StarshipResponseCompletion = (Starship?) -> Void
+
+typealias FilmResponseCompletion = (Film?) -> Void
