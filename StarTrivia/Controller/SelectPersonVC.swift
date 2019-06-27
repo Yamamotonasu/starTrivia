@@ -21,6 +21,7 @@ class SelectPersonVC: UIViewController {
     @IBOutlet weak var vehiclesBtn: UIButton!
     @IBOutlet weak var starshipsBtn: UIButton!
     @IBOutlet weak var filmsBtn: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     var personApi = PersonApi()
     var person: Person!
@@ -31,7 +32,10 @@ class SelectPersonVC: UIViewController {
 
     @IBAction func randomClicked(_ sender: Any) {
         let random = Int.random(in: 1...87)
+        spinner.startAnimating()
         personApi.getRandomPersonUrlSessionAlamo(id: random) { (person) in
+            /// ここでもうAPI Sessionは終了している
+            self.spinner.stopAnimating()
             if let person = person {
                 self.setupView(person: person)
                 self.person = person
